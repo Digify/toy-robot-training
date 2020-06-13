@@ -16,4 +16,4 @@ If you're doing this project in Java, you will:
 * Use [OpenJDK](https://adoptopenjdk.net/installation.html) Java 11 or higher
 * Use [JUnit 5](https://junit.org/junit5/) for unit testing
 * Use [JaCoCo](https://www.eclemma.org/jacoco/) to monitor code coverage
-* Use [TravisCI](https://travis-ci.org/) for our continuous integration
+* Use [TravisCI](https://travis-ci.org/) for continuous integration
