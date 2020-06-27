@@ -3,12 +3,41 @@
  */
 package ToyRobot;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+/**
+ * This application implements the Toy Robot problem.
+ *
+ * @author  Diclehan Erdal
+ */
 public class App {
-    public String getGreeting() {
-        return "HIYA!";
+    public static void main(String[] args) {
+        ToyRobot ATLAS = new ToyRobot();
+        ATLAS.performCommands(commandsFromFile("src\\main\\resources\\input.txt"));
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    /**
+     * This method reads a list of commands from a file and copies them into a list.
+     * @param   pathToFile          the path to the text file that contains that commands
+     * @return  ArrayList<String>   a list of commands from the text file
+     */
+    private static ArrayList<String> commandsFromFile(String pathToFile) {
+        ArrayList<String> commands = new ArrayList<String>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                commands.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return commands;
     }
 }
+
+
