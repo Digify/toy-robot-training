@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 /**
  * This application implements the Toy Robot problem.
@@ -15,8 +16,53 @@ import java.util.ArrayList;
  */
 public class App {
     public static void main(String[] args) {
-        ToyRobot ATLAS = new ToyRobot();
-        ATLAS.performCommands(commandsFromFile("src\\main\\resources\\input.txt"));
+        // Toy robot named after Atlas from the Portal video game series.
+        ToyRobot Atlas = null;
+
+        ArrayList<String> commands = commandsFromFile("src\\main\\resources\\input.txt");
+
+        for (String command : commands) {
+            // Toy robot has not been placed
+            if (Atlas == null) {
+                if (command.contains("PLACE")) {
+                    command = command.replace("PLACE ", "");
+                    StringTokenizer tokenizer = new StringTokenizer(command, ",");
+                    int X = Integer.parseInt(tokenizer.nextToken());
+                    int Y = Integer.parseInt(tokenizer.nextToken());
+                    Direction F = Direction.valueOf(tokenizer.nextToken());
+
+                    if (ToyRobot.onTable(X, Y)) {
+                        Atlas = new ToyRobot(X, Y, F);
+                    }
+                }
+            }
+            // Toy robot has been placed
+            else {
+                if (command.contains("PLACE")) {
+                    command = command.replace("PLACE ", "");
+                    StringTokenizer tokenizer = new StringTokenizer(command, ",");
+                    Atlas.place(Integer.parseInt(tokenizer.nextToken()),
+                                Integer.parseInt(tokenizer.nextToken()),
+                                Direction.valueOf(tokenizer.nextToken()));
+                }
+                else {
+                    switch (command) {
+                        case "MOVE":
+                            Atlas.move();
+                            break;
+                        case "LEFT":
+                            Atlas.left();
+                            break;
+                        case "RIGHT":
+                            Atlas.right();
+                            break;
+                        case "REPORT":
+                            Atlas.report();
+                            break;
+                    }
+                }
+            }
+        }
     }
 
     /**
