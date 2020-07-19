@@ -57,7 +57,7 @@ public class App {
                             Atlas.right();
                             break;
                         case "REPORT":
-                            Atlas.report();
+                            System.out.println(Atlas.report());
                             break;
                     }
                 }

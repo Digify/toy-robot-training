@@ -104,7 +104,7 @@ public class ToyRobot {
     public void right() { facingDirection = facingDirection.right(); }
 
     /**
-     * This method reports the current position coordinates and direction of the toy robot to the command line.
+     * This method returns the current position coordinates and direction of the toy robot to the command line.
      */
-    public void report() { System.out.println(positionX + "," + positionY + "," + facingDirection.toString()); }
+    public String report() { return positionX + "," + positionY + "," + facingDirection.toString(); }
 }
