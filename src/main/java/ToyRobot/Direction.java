@@ -11,7 +11,7 @@ public enum Direction {
     SOUTH,
     WEST;
 
-    public static final Direction[] values = values();
+    private static final Direction[] values = values();
 
     /**
      * @return  Direction   the direction on the left
