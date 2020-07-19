@@ -23,6 +23,18 @@ public class ToyRobot {
         place(X, Y, F);
     }
 
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public int getPositionY() {
+        return positionY;
+    }
+
+    public Direction getFacingDirection() {
+        return facingDirection;
+    }
+
     /**
      * This method determines if a position is on the table.
 
