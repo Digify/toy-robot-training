@@ -15,7 +15,7 @@ import java.util.StringTokenizer;
  * @author  Diclehan Erdal
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         // Toy robot named after Atlas from the Portal video game series.
         ToyRobot Atlas = null;
 
@@ -70,7 +70,7 @@ public class App {
      * @param   pathToFile          the path to the text file that contains that commands
      * @return  ArrayList<String>   a list of commands from the text file
      */
-    private static ArrayList<String> commandsFromFile(String pathToFile) {
+    private static ArrayList<String> commandsFromFile(String pathToFile) throws IOException{
         ArrayList<String> commands = new ArrayList<String>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
@@ -78,8 +78,6 @@ public class App {
             while ((line = br.readLine()) != null) {
                 commands.add(line);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
         return commands;
