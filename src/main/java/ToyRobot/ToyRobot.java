@@ -17,8 +17,8 @@ public class ToyRobot {
 
     private ToyRobotData data;
 
-    public ToyRobot(int X, int Y, Direction F) {
-        place(X, Y, F);
+    public ToyRobot(ToyRobotData data) {
+        place(data);
     }
 
     public int getPositionX() {
@@ -43,15 +43,8 @@ public class ToyRobot {
         return true;
     }
 
-    public void place(int X, int Y, Direction F) {
-        if (data == null) {
-            data = new ToyRobotData(X, Y, F);
-        } else {
-            data.setPositionX(X);
-            data.setPositionY(Y);
-            data.setFacingDirection(F);
-        }
-
+    public void place(ToyRobotData data) {
+        this.data = data;
     }
 
     /**

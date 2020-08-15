@@ -25,25 +25,17 @@ public class App {
             // Toy robot has not been placed
             if (Atlas == null) {
                 if (command.contains("PLACE")) {
-                    command = command.replace("PLACE ", "");
-                    StringTokenizer tokenizer = new StringTokenizer(command, ",");
-                    int X = Integer.parseInt(tokenizer.nextToken());
-                    int Y = Integer.parseInt(tokenizer.nextToken());
-                    Direction F = Direction.valueOf(tokenizer.nextToken());
+                    ToyRobotData placeData = parsePlaceToData(command);
 
-                    if (ToyRobot.onTable(X, Y)) {
-                        Atlas = new ToyRobot(X, Y, F);
+                    if (ToyRobot.onTable(placeData.getPositionX(), placeData.getPositionX())) {
+                        Atlas = new ToyRobot(placeData);
                     }
                 }
             }
             // Toy robot has been placed
             else {
                 if (command.contains("PLACE")) {
-                    command = command.replace("PLACE ", "");
-                    StringTokenizer tokenizer = new StringTokenizer(command, ",");
-                    Atlas.place(Integer.parseInt(tokenizer.nextToken()),
-                                Integer.parseInt(tokenizer.nextToken()),
-                                Direction.valueOf(tokenizer.nextToken()));
+                    Atlas.place(parsePlaceToData(command));
                 } else {
                     switch (command) {
                         case "MOVE":
@@ -62,6 +54,15 @@ public class App {
                 }
             }
         }
+    }
+
+    private static ToyRobotData parsePlaceToData(String command) {
+        command = command.replace("PLACE ", "");
+        StringTokenizer tokenizer = new StringTokenizer(command, ",");
+        int X = Integer.parseInt(tokenizer.nextToken());
+        int Y = Integer.parseInt(tokenizer.nextToken());
+        Direction F = Direction.valueOf(tokenizer.nextToken());
+        return new ToyRobotData(X, Y, F);
     }
 
     /**
