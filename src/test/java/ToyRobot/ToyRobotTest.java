@@ -9,9 +9,9 @@ public class ToyRobotTest {
     @Test
     public void testPlace() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.NORTH);
-        toyRobot.place(0, 2, Direction.EAST);
+        toyRobot.place(1, 2, Direction.EAST);
 
-        assertEquals(0, toyRobot.getPositionX());
+        assertEquals(1, toyRobot.getPositionX());
         assertEquals(2, toyRobot.getPositionY());
         assertEquals(Direction.EAST, toyRobot.getFacingDirection());
     }
