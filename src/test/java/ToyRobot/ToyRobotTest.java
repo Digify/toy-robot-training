@@ -61,7 +61,7 @@ public class ToyRobotTest {
     @Test
     public void testLeftNorth() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.NORTH);
-        toyRobot.left();
+        toyRobot.turnLeft();
 
         assertEquals(0, toyRobot.getPositionX());
         assertEquals(0, toyRobot.getPositionY());
@@ -71,7 +71,7 @@ public class ToyRobotTest {
     @Test
     public void testLeftEast() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.EAST);
-        toyRobot.left();
+        toyRobot.turnLeft();
 
         assertEquals(0, toyRobot.getPositionX());
         assertEquals(0, toyRobot.getPositionY());
@@ -81,7 +81,7 @@ public class ToyRobotTest {
     @Test
     public void testLeftSouth() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.SOUTH);
-        toyRobot.left();
+        toyRobot.turnLeft();
 
         assertEquals(0, toyRobot.getPositionX());
         assertEquals(0, toyRobot.getPositionY());
@@ -91,7 +91,7 @@ public class ToyRobotTest {
     @Test
     public void testLeftWest() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.WEST);
-        toyRobot.left();
+        toyRobot.turnLeft();
 
         assertEquals(0, toyRobot.getPositionX());
         assertEquals(0, toyRobot.getPositionY());
@@ -102,7 +102,7 @@ public class ToyRobotTest {
     @Test
     public void testRightNorth() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.NORTH);
-        toyRobot.right();
+        toyRobot.turnRight();
 
         assertEquals(0, toyRobot.getPositionX());
         assertEquals(0, toyRobot.getPositionY());
@@ -112,7 +112,7 @@ public class ToyRobotTest {
     @Test
     public void testRightEast() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.EAST);
-        toyRobot.right();
+        toyRobot.turnRight();
 
         assertEquals(0, toyRobot.getPositionX());
         assertEquals(0, toyRobot.getPositionY());
@@ -122,7 +122,7 @@ public class ToyRobotTest {
     @Test
     public void testRightSouth() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.SOUTH);
-        toyRobot.right();
+        toyRobot.turnRight();
 
         assertEquals(0, toyRobot.getPositionX());
         assertEquals(0, toyRobot.getPositionY());
@@ -132,7 +132,7 @@ public class ToyRobotTest {
     @Test
     public void testRightWest() {
         ToyRobot toyRobot = new ToyRobot(0, 0, Direction.WEST);
-        toyRobot.right();
+        toyRobot.turnRight();
 
         assertEquals(0, toyRobot.getPositionX());
         assertEquals(0, toyRobot.getPositionY());

@@ -15,24 +15,22 @@ public class ToyRobot {
     private static final int TABLE_SIZE_X      = 5;
     private static final int TABLE_SIZE_Y      = 5;
 
-    private int positionX;
-    private int positionY;
-    private Direction facingDirection;
+    private ToyRobotData data;
 
     public ToyRobot(int X, int Y, Direction F) {
         place(X, Y, F);
     }
 
     public int getPositionX() {
-        return positionX;
+        return data.getPositionX();
     }
 
     public int getPositionY() {
-        return positionY;
+        return data.getPositionY();
     }
 
     public Direction getFacingDirection() {
-        return facingDirection;
+        return data.getFacingDirection();
     }
 
     /**
@@ -60,34 +58,39 @@ public class ToyRobot {
      * @param   F is the direction the toy robot is to be facing.
      */
     public void place(int X, int Y, Direction F) {
-        positionX = X;
-        positionY = Y;
-        facingDirection = F;
+        if (data == null) {
+            data = new ToyRobotData(X, Y, F);
+        } else {
+            data.setPositionX(X);
+            data.setPositionY(Y);
+            data.setFacingDirection(F);
+        }
+
     }
 
     /**
      * This method moves the toy robot forward one move if the new position is still on the table.
      */
     public void move() {
-        switch (facingDirection) {
+        switch (data.getFacingDirection()) {
             case NORTH:
-                if (positionY < TABLE_SIZE_Y) {
-                    positionY++;
+                if (data.getPositionY() < TABLE_SIZE_Y) {
+                    data.setPositionY(data.getPositionY() + 1);
                 }
                 break;
             case EAST:
-                if (positionX < TABLE_SIZE_X) {
-                    positionX++;
+                if (data.getPositionX() < TABLE_SIZE_X) {
+                    data.setPositionX(data.getPositionX() + 1);
                 }
                 break;
             case SOUTH:
-                if (positionY > TABLE_ORIGIN_Y) {
-                    positionY--;
+                if (data.getPositionY() > TABLE_ORIGIN_Y) {
+                    data.setPositionY(data.getPositionY() - 1);
                 }
                 break;
             case WEST:
-                if (positionX > TABLE_ORIGIN_X) {
-                    positionX--;
+                if (data.getPositionX() > TABLE_ORIGIN_X) {
+                    data.setPositionX(data.getPositionX() - 1);
                 }
                 break;
         }
@@ -96,15 +99,15 @@ public class ToyRobot {
     /**
      * This method changes the toy robot's facing direction to the left.
      */
-    public void left() { facingDirection = facingDirection.left(); }
+    public void turnLeft() { data.setFacingDirection(data.getFacingDirection().left()); }
 
     /**
      * This method changes the toy robot's facing direction to the right.
      */
-    public void right() { facingDirection = facingDirection.right(); }
+    public void turnRight() { data.setFacingDirection(data.getFacingDirection().right()); }
 
     /**
      * This method returns the current position coordinates and direction of the toy robot to the command line.
      */
-    public String report() { return positionX + "," + positionY + "," + facingDirection.toString(); }
+    public String report() { return getPositionX() + "," + getPositionY() + "," + getFacingDirection().toString(); }
 }

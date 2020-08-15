@@ -44,17 +44,16 @@ public class App {
                     Atlas.place(Integer.parseInt(tokenizer.nextToken()),
                                 Integer.parseInt(tokenizer.nextToken()),
                                 Direction.valueOf(tokenizer.nextToken()));
-                }
-                else {
+                } else {
                     switch (command) {
                         case "MOVE":
                             Atlas.move();
                             break;
                         case "LEFT":
-                            Atlas.left();
+                            Atlas.turnLeft();
                             break;
                         case "RIGHT":
-                            Atlas.right();
+                            Atlas.turnRight();
                             break;
                         case "REPORT":
                             System.out.println(Atlas.report());
