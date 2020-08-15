@@ -33,13 +33,6 @@ public class ToyRobot {
         return data.getFacingDirection();
     }
 
-    /**
-     * This method determines if a position is on the table.
-
-     * @param   X is the x coordinate of the position and
-     * @param   Y is the y coordinate of the position.
-     * @return  true if the position is on the table and false if not.
-     */
     public static Boolean onTable(int X, int Y) {
         // New position is not on the table
         if (X < TABLE_ORIGIN_X || X > TABLE_SIZE_X || Y < TABLE_ORIGIN_Y || Y > TABLE_SIZE_Y)
@@ -50,13 +43,6 @@ public class ToyRobot {
         return true;
     }
 
-    /**
-     * This method updates the position and direction of the toy robot.
-
-     * @param   X is the x coordinate of the position the toy robot is to be placed,
-     * @param   Y is the y coordinate of the position the toy robot is to be placed, and
-     * @param   F is the direction the toy robot is to be facing.
-     */
     public void place(int X, int Y, Direction F) {
         if (data == null) {
             data = new ToyRobotData(X, Y, F);
@@ -96,18 +82,9 @@ public class ToyRobot {
         }
     }
 
-    /**
-     * This method changes the toy robot's facing direction to the left.
-     */
     public void turnLeft() { data.setFacingDirection(data.getFacingDirection().left()); }
 
-    /**
-     * This method changes the toy robot's facing direction to the right.
-     */
     public void turnRight() { data.setFacingDirection(data.getFacingDirection().right()); }
 
-    /**
-     * This method returns the current position coordinates and direction of the toy robot to the command line.
-     */
     public String report() { return getPositionX() + "," + getPositionY() + "," + getFacingDirection().toString(); }
 }
