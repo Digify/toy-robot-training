@@ -32,11 +32,3 @@ application {
     // Define the main class for the application.
     mainClassName = 'ToyRobot.App'
 }
-
-
-gradleEnterprise {
-    buildScan {
-        termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-        termsOfServiceAgree = 'yes'
-    }
-}
